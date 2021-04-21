@@ -505,3 +505,6 @@ button.navbar-side {width: 100%;
 .card p span {
   margin-left: 2%;
 }
+.relatedRow {
+  justify-content: center;
+}

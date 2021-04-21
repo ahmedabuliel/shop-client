@@ -110,7 +110,7 @@ const ImgCover=(e)=>{
             type="file"
             multiple
             hidden
-            accept="images/*"
+            accept="image/*"
             onChange={e=>fileUploadAndResize(e)}
          
           />

@@ -50,16 +50,15 @@ export const signout = () => async dispatch => {
     }
 }
 
-export const signup = (formData) => async dispatch => {
+export const signup = user => async dispatch => {
+ 
     try{
         const config = {     
-            headers: { 'content-type': 'multipart/form-data',
-             }
+            "Content-Type":"application/json",
         }
         
-        
-        const res= await axios.post(`${API}/signup`,formData,config)
-       
+        const res= await axios.post(`${API}/signup`,user,config)
+       console.log(res.data)
         dispatch({
             type:REGISTER_SUCCESS,
             payload:res.data

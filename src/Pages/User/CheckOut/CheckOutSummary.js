@@ -40,11 +40,11 @@ import Table from 'react-bootstrap/Table'
                     </tbody>
                     </Table>
                   <hr />
-               Before Tax :{total-tax}₪ 
+               Before Tax : {(total-tax).toFixed(2)}₪ 
                 <hr />
-                Tax ({`${TAX}`}):{tax}₪ 
+                Tax ({`${TAX}`}) : {tax.toFixed(2)}₪ 
                 <hr />
-                Total: <b>{total}₪</b>
+                Total: <b>{total.toFixed(2)}₪</b>
              <hr />
         </div>
     )

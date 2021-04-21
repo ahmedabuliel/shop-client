@@ -46,7 +46,7 @@ const AdminCategory =({user})=>{
         if (window.confirm(`To Delete ${name}?`)) {
           setLoading(true);
           await removeCategory(name,catId,user.token)
-          setCategorylist(getCategories()) 
+          loadCategories();
           setLoading(false);
         }
       }

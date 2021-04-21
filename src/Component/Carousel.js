@@ -59,8 +59,10 @@ useEffect(() => {
    
 return (
 <>
+
 <h1 className="topSaleTitle">Product Top Sale </h1>
 <div className="topSale col align-self-center">
+  
     <Slider {...settings}>
           
          {(products!==undefined)?

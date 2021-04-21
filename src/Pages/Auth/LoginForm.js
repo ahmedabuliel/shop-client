@@ -36,7 +36,7 @@ const  LoginForm= ({signin,isAuthenticated,history})=> {
     return (
         <div className="container p-5 col-10">
         <h2 className="topTitle mx-auto">Log In </h2>
-        <form className="login col-6"   onSubmit={handleSubmit}> 
+        <form className="login col-md-6"   onSubmit={handleSubmit}> 
            
             <div className="form-group row">
                 <label  className="col-3 col-form-label"> Email</label>

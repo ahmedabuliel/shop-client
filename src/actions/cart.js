@@ -109,7 +109,7 @@ export const updateCart =(amount,product,token )=>{
 
         }       
     }
-   console.log(cart)
+
     localStorage.setItem('cart', JSON.stringify(cart));
     userCart(localStorage.getItem('cart'),token)
       .then((res) => {

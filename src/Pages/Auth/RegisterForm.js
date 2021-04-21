@@ -2,10 +2,13 @@ import React, {useState} from 'react'
 import { toast } from 'react-toastify';
 import {connect} from 'react-redux'
 import {signup} from '../../actions/user'
-
+import Resizer from "react-image-file-resizer";
+import { Avatar, Badge ,Image } from "antd";
 import { Link, Redirect } from 'react-router-dom';
+import FileUpload from '../User/Admin/Product/FileUpload';
+import ProfileUpload from './ProfileUpload';
 
-const RegisterForm=({signup,isAuthenticated})=> {
+const RegisterForm=({isAuthenticated,signup})=> {
    
     const [values, setValues]=useState({
         name:'',
@@ -13,15 +16,14 @@ const RegisterForm=({signup,isAuthenticated})=> {
         password:'',
         confipassword:'',
         phone:'',
-        formData: new FormData(),
+        profile:''
 
     })
-    const [imgFile,setImgFile]=useState();
+
     const [valid,setValid]=useState(false)
 
     
     const {name,email,password,confipassword,phone,formData} = values;
-   
     if (isAuthenticated){
         
         return <Redirect to="/" />
@@ -90,12 +92,9 @@ const RegisterForm=({signup,isAuthenticated})=> {
 }
     const onChange = (e) => {
         
-        if(e.target.name=='imgFile')   {
-          setImgFile(e.target.files[0])  
-          formData.set(e.target.name, e.target.files[0])
-        } else {
-          formData.set(e.target.name, e.target.value)
-          setValues({...values, [e.target.name]:e.target.value})}
+       
+       
+          setValues({...values, [e.target.name]:e.target.value})
 
     }
     const onSubmit = async(e) => {
@@ -104,24 +103,24 @@ const RegisterForm=({signup,isAuthenticated})=> {
         if(valid)
        { 
         
-       await signup(formData)
+        signup(values)
         }
        
     }
 
     
   return(
-    <div className="container p-5 col-10">
+    <div className="container p-5 col-8">
       <h2 className="topTitle mx-auto">Register</h2>
-    <form className="register login needs-validation" onSubmit={onSubmit}>
+    <form className="register login needs-validation" onSubmit={e=>onSubmit(e)}>
       
         <div className='row'>
-          <div className="col-md-6">
+          <div className="col-md-12">
             <label>Name*: </label>
             <input type='text' name='name' className="form-control col-12" value={name} onChange={e=> onChange(e)}  required />
            
           </div>
-          <div className="col-md-6">
+          <div className="col-md-12">
               <label>Email*:</label>
               <input className="form-control col-12" type='email' name='email' value={email} onChange={e=> onChange(e)} required />
             
@@ -131,12 +130,12 @@ const RegisterForm=({signup,isAuthenticated})=> {
        
         <div className='row'>
            
-          <div className="col-md-6">
+          <div className="col-md-12">
               <label>Password*</label>
               <input type='password' name='password' value={password} onChange={e=> onChange(e)} className="form-control col-12" required/>
              
           </div>
-          <div className="col-md-6">
+          <div className="col-md-12">
               <label>Confirm Password*</label>
               <input type='password' name='confipassword' className="form-control col-12"  value={confipassword} onChange={e=> onChange(e)} required/>
               
@@ -144,19 +143,19 @@ const RegisterForm=({signup,isAuthenticated})=> {
         </div>
         <div className='row'>
 
-            <div className="col-md-6">
+            <div className="col-md-12">
               <label>Phone* :</label>
               <input type='text' name='phone'  className="form-control col-12" value={phone} onChange={e=> onChange(e)} required />
              
             </div>
            
-            <div className="col-md-6">
-                <label >Choose Profile Image</label>  
-                <input type="file" className=" form-control col-12" name='imgFile'   onChange={ e => onChange(e)}  accept="image/*"/>
+            <div className="col-md-12 ">
+               
+                <ProfileUpload values={values} setValues={setValues}/>
             </div>
         </div>
         <div className='row'>
-            <div className="col-md-6 mx-auto">
+            <div className="col-md-12 mx-auto">
                 <button type='submit'  className="btn btn-danger" >Submit</button>
             </div>
         </div>

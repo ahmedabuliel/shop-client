@@ -12,6 +12,7 @@ import WishListBtn from '../../Component/ProductComponent/WishListBtn'
 import {getVariets,getProductImages,getProduct} from '../../actions/products'
 import {getCart,addItem} from '../../actions/cart'
 import {getRating} from '../../actions/rating'
+import RelatedProducts from '../../Component/ProductComponent/RelatedProducts';
 
 const ProductPage=({isAuthenticated,props,getCart,user})=>
 {
@@ -26,7 +27,7 @@ const ProductPage=({isAuthenticated,props,getCart,user})=>
   const [selectedProduct,setSelectedProduct]=useState({})
   const [product,setProduct]=useState([]);
   const [images,setImages]=useState();
- 
+  const [relatedProducts,setRelatedProducts]=useState([])
   const [rating,setRating] = useState(0) 
   const [wishlist,setWishlist] = useState(false) 
   //functions------------------------------------------------------------------------------->
@@ -37,9 +38,9 @@ const ProductPage=({isAuthenticated,props,getCart,user})=>
     setImages(await getProductImages(productID))
     setRating(await getRating(productID))
     setLoading(false);
-
-
+   
  }
+ 
 
    const changeUrl=(url)=>{
    
@@ -126,7 +127,8 @@ const ProductPage=({isAuthenticated,props,getCart,user})=>
   },[images])
   
   useEffect(()=>{
-  
+    
+
     loadproduct()
   },[productID])
  
@@ -216,14 +218,8 @@ const ProductPage=({isAuthenticated,props,getCart,user})=>
           </div>
       
         </div>
-     
-        <h3 className="my-4">Related Projects</h3>
-      
-        <div className="row">
-      
-        
-      
-        </div>
+                
+      <RelatedProducts relatedProducts={relatedProducts} setRelatedProducts={setRelatedProducts} productID={props.match.params.proID} catID={product[0].Category} />
      
             </>  }
         

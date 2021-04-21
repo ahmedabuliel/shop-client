@@ -4,8 +4,9 @@ import React,{useEffect,lazy, Suspense} from 'react'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import {  Spin  } from 'antd';
-import {Route, Switch,Redirect} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import { connect } from 'react-redux';
+
 
 
 import {loadUser} from './actions/user'
@@ -23,6 +24,8 @@ import UpdateCategory from './Pages/User/Admin/UpdateCategory'
 import UpdatePassword from './Pages/Auth/UpdatePassword'
 import EditAdminProduct from  './Pages/User/Admin/Product/EditAdminProduct';
 import CheckOut from './Pages/User/CheckOut/CheckOut'
+import { Layout } from 'antd';
+const {  Footer } = Layout;
 const NotFound =lazy(()=>import('./Pages/NotFound')) 
 const Container =lazy(()=>import ('./Pages/Container')) 
 const NavBar =lazy(()=>import('./Component/Navs/NavBar')) 
@@ -94,6 +97,7 @@ const App =({getVariets,getCart}) =>{
         
       
       </Switch>
+      <Footer style={{ textAlign: 'center' }}> Abu Liel Shop ©2021 Created by Ahmad Abuliel Designed by Ahmad Abuliel Used React , Redux , NodeJS , MYSQL  </Footer>
     </div>
     </Suspense>
   );

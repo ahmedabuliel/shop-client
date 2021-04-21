@@ -83,6 +83,20 @@ export const getProduct = async (ID)  => {
       
     }
 }
+export const getRelatedProducts =async (productID,catID)=>{
+    const config={
+        "Content-Type":"application/json"
+    }
+    console.log(catID)
+    const data={
+        productID,
+        catID
+    }
+    const res=await axios.post(`${API}/getRelatedProducts`,data,config)
+    console.log(res.data)
+    return res.data
+}
+
 export const getTopProducts = async ()  => {
     try{
         const config={
