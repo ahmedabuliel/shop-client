@@ -22,14 +22,14 @@ const Cart =({user,cartState,history})=>{
     return(
         <div className="container-fluid" >
         <div className='row'>
-            <div className='col-md-2'>
+            <div className='col-lg-2'>
                  <NavBarSide /> 
             </div>
-            <div className='col-md-7 center'>
+            <div className='col-lg-7 center'>
              <h2 className="topTitle mx-auto">Cart</h2>
                 <CartTable/>
              </div>
-             <div className='col-md-3 '>
+             <div className='col-lg-3 '>
              <h2 className="topTitle mx-auto">Order Summary</h2>
             
           <hr />

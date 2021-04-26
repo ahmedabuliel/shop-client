@@ -10,7 +10,7 @@ import { Spin } from 'antd';
 const AdminVariets =({user ,varietsList,getVariets})=>{
     const [variets,setVariets]=useState([])
     const [loading, setLoading] = useState(false);
-    const [values, setValues]=useState({})
+    const [values, setValues]=useState({chk:false})
     const loadVariets=async()=>{
          setVariets(varietsList)
     }

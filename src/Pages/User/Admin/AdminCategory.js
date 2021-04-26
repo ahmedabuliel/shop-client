@@ -39,7 +39,7 @@ const AdminCategory =({user})=>{
         setLoading(true);
       await setCategory(name,user.token)
      loadCategories();
-     setCategorylist(getCategories()) 
+   
       setLoading(false);
       }
       const handleRemove=async (name,catId)=>{

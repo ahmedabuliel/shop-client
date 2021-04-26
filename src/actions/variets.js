@@ -67,6 +67,7 @@ export const createVariet = async (name,value,chk,token) =>  {
         } 
     const res= await axios.post(`${API}/createVariet`,data,{headers})
         toast.success(`${name} create sucsses `)
+        console.log(res)
         getVariets()
     } 
     catch(err){

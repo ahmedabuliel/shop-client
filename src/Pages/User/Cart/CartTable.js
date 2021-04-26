@@ -56,7 +56,7 @@ const CartTable =({getCart,user,cartState})=>{
         {cartState.map((item,index) => {
        
            
-          return  <div  key ={index} className='col-md-3'>
+          return  <div  key ={index} className='col-lg-4'>
                 <div className="card  " >
               
                 <img src={`${UPLOAD}${imageProduct(item)}`}
